@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORM® — Everyday Tech Objects</title>
+<style>
+:root{--bg:#f2f2ef;--ink:#171918;--muted:#777b78;--line:#d6d8d3;--accent:#d7ff3f}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}.wrap{max-width:1240px;margin:auto;padding:0 5.5vw}
+header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:25px;font-weight:800;letter-spacing:-2px}.logo sup{font-size:9px;letter-spacing:0}
+nav{display:flex;gap:30px;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#555}
+.cart{font-size:11px;border:1px solid var(--ink);padding:10px 14px;border-radius:30px}
+.hero{padding:92px 0 70px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end}
+.eyebrow,.section-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(55px,9vw,118px);line-height:.88;letter-spacing:-.09em;margin:22px 0 26px;font-weight:600}
+.hero p{max-width:350px;color:#666;font-size:14px;line-height:1.7}
+.hero-art{height:330px;background:#e5e7e1;position:relative;display:grid;place-items:center;overflow:hidden}
+.orbit{width:230px;height:230px;border:1px solid #aeb3aa;border-radius:50%;position:absolute}
+.orbit:after{content:"";position:absolute;width:14px;height:14px;border-radius:50%;background:var(--accent);top:20px;right:23px}
+.device{width:130px;height:220px;border:2px solid #242725;border-radius:27px;background:#d9ddd5;transform:rotate(12deg);position:relative;box-shadow:20px 24px 40px #0002}
+.device:before{content:"";position:absolute;width:35px;height:5px;border-radius:8px;background:#292d2a;top:9px;left:46px}
+.device:after{content:"";position:absolute;width:42px;height:42px;border:1px solid #555;border-radius:14px;top:25px;left:14px;box-shadow:48px 0 0 -1px #d9ddd5,48px 0 0 0 #555}
+.hero-note{position:absolute;bottom:18px;left:20px;font-size:9px;letter-spacing:1.5px;color:#666}
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0;white-space:nowrap;overflow:hidden;font-size:10px;letter-spacing:2px;color:#777}
+section{padding:75px 0}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}
+h2{font-size:clamp(30px,5vw,54px);letter-spacing:-.065em;font-weight:500;margin:10px 0 0}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.category{background:#e7e8e3;padding:22px;min-height:115px;display:flex;flex-direction:column;justify-content:space-between;transition:.2s}
+.category:hover{background:var(--accent)}.category b{font-size:16px;font-weight:500}.category span{font-size:10px;color:#777}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.product{min-width:0}.photo{height:290px;background:#e5e7e1;display:grid;place-items:center;position:relative;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;display:none}
+.photo .placeholder{font-size:10px;letter-spacing:1.5px;color:#8a8e88;text-align:center;padding:20px}
+.upload{position:absolute;bottom:12px;right:12px;background:#fff;border:0;padding:9px 12px;font-size:10px;cursor:pointer}
+.product-info{display:flex;justify-content:space-between;gap:10px;padding:14px 0 25px;border-bottom:1px solid var(--line)}
+.product-info b{font-size:13px;font-weight:500}.product-info small{display:block;color:#777;margin-top:6px;font-size:10px}
+.price{font-size:12px;white-space:nowrap}
+.about{background:#202421;color:#f1f2ed;padding:65px 7%;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about h2{font-size:clamp(34px,5vw,60px)}.about p{color:#b7bcb5;line-height:1.8;font-size:13px;max-width:440px}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.value{border-top:1px solid #555b54;padding-top:13px;font-size:11px;color:#d5d8d1}.value span{display:block;color:#8f968e;font-size:10px;margin-top:7px}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.info-grid h3{font-size:12px;text-transform:uppercase;letter-spacing:1px}.info-grid p,.info-grid a{font-size:12px;color:#777;line-height:1.8}
+footer{background:#e6e8e2;padding:40px 0 22px;border-top:1px solid var(--line)}
+.footer-top{display:flex;justify-content:space-between;gap:30px;padding-bottom:35px}
+.footer-links{display:flex;gap:35px;flex-wrap:wrap}.footer-links div{display:flex;flex-direction:column;gap:10px;font-size:11px;color:#666}
+.footer-links b{color:#222;font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.footer-bottom{border-top:1px solid var(--line);padding-top:17px;display:flex;justify-content:space-between;color:#888;font-size:9px;letter-spacing:1px}
+@media(max-width:700px){nav{gap:12px;font-size:9px}.hero{grid-template-columns:1fr;padding:65px 0 45px}.hero-art{height:260px}.categories{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(2,1fr)}.photo{height:210px}.about{grid-template-columns:1fr;padding:42px 7%}.values{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr 1fr}.footer-top{flex-direction:column}.footer-links{gap:22px}}
+@media(max-width:420px){nav a:nth-child(3){display:none}.products{grid-template-columns:1fr 1fr}.photo{height:175px}.wrap{padding:0 5%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><a class="logo" href="#">FORM<sup>®</sup></a><nav><a href="#shop">shop</a><a href="#about">about</a><a href="#contact">contact</a></nav><a class="cart" href="#shop">EXPLORE ↗</a></header>
+<main>
+<div class="hero">
+<div><div class="eyebrow">TECH OBJECTS / VOL. 01</div><h1>Less, but<br>better.</h1><p>Everyday accessories, thoughtfully selected. Functional objects with a little more character.</p></div>
+<div class="hero-art"><div class="orbit"></div><div class="device"></div><div class="hero-note">OBJECT STUDY — 001</div></div>
+</div>
+<div class="marquee">FORM FOLLOWS FUNCTION　·　DESIGNED FOR EVERYDAY USE　·　FORM FOLLOWS FUNCTION　·　DESIGNED FOR EVERYDAY USE　·　</div>
+<section id="shop"><div class="section-head"><div><div class="section-tag">01 / COLLECTION</div><h2>Find your form.</h2></div><div class="section-tag">CURATED TECH ACCESSORIES</div></div>
+<div class="categories">
+<a class="category" href="#products"><span>01 / AUDIO</span><b>Audio ↗</b></a><a class="category" href="#products"><span>02 / INPUT</span><b>Mouse & keyboard ↗</b></a><a class="category" href="#products"><span>03 / MOBILE</span><b>Phone essentials ↗</b></a><a class="category" href="#products"><span>04 / DAILY</span><b>Daily carry ↗</b></a>
+</div></section>
+<section id="products" style="padding-top:10px"><div class="section-head"><div><div class="section-tag">02 / SELECTED OBJECTS</div><h2>Made to be used.</h2></div><div class="section-tag">01 — 06</div></div>
+<div class="products">
+<div class="product"><div class="photo"><div class="placeholder">ADD PRODUCT PHOTO 01</div><img alt="Product 1"><label class="upload">ADD PHOTO<input type="file" accept="image/*" hidden></label></div><div class="product-info"><div><b>Wireless Headphone</b><small>Audio / Everyday</small></div><span class="price">Rp  —</span></div></div>
+<div class="product"><div class="photo"><div class="placeholder">ADD PRODUCT PHOTO 02</div><img alt="Product 2"><label class="upload">ADD PHOTO<input type="file" accept="image/*" hidden></label></div><div class="product-info"><div><b>Wireless Earbuds</b><small>Audio / Compact</small></div><span class="price">Rp  —</span></div></div>
+<div class="product"><div class="photo"><div class="placeholder">ADD PRODUCT PHOTO 03</div><img alt="Product 3"><label class="upload">ADD PHOTO<input type="file" accept="image/*" hidden></label></div><div class="product-info"><div><b>Minimal Mouse</b><small>Workspace / Input</small></div><span class="price">Rp  —</span></div></div>
+<div class="product"><div class="photo"><div class="placeholder">ADD PRODUCT PHOTO 04</div><img alt="Product 4"><label class="upload">ADD PHOTO<input type="file" accept="image/*" hidden></label></div><div class="product-info"><div><b>Phone Case</b><small>Mobile / Protection</small></div><span class="price">Rp  —</span></div></div>
+<div class="product"><div class="photo"><div class="placeholder">ADD PRODUCT PHOTO 05</div><img alt="Product 5"><label class="upload">ADD PHOTO<input type="file" accept="image/*" hidden></label></div><div class="product-info"><div><b>Tempered Glass</b><small>Mobile / Essential</small></div><span class="price">Rp  —</span></div></div>
+<div class="product"><div class="photo"><div class="placeholder">ADD PRODUCT PHOTO 06</div><img alt="Product 6"><label class="upload">ADD PHOTO<input type="file" accept="image/*" hidden></label></div><div class="product-info"><div><b>Charging Cable</b><small>Daily / Utility</small></div><span class="price">Rp  —</span></div></div>
+</div></section>
+<div class="about" id="about"><div><div class="section-tag" style="color:#aeb5aa">03 / THE IDEA</div><h2>Good design<br>is quiet.</h2></div><div><p>FORM is a curated gadget accessories concept built around simple shapes, useful details, and objects that fit naturally into everyday life. No unnecessary noise. Just things that work.</p><div class="values"><div class="value">01 — FUNCTION<span>Useful by design</span></div><div class="value">02 — FORM<span>Simple, considered</span></div><div class="value">03 — DAILY<span>Made for everyday</span></div></div></div></div>
+<section id="contact"><div class="section-tag">04 / FIND US</div><h2>Stay connected.</h2><div class="info-grid" style="margin-top:30px"><div><h3>Location</h3><p>Jakarta, Indonesia<br>Store location details coming soon.</p><a href="https://maps.google.com/?q=Jakarta" target="_blank">Open Google Maps ↗</a></div><div><h3>Get in touch</h3><p>Questions, collaborations, or product inquiries.</p><a href="mailto:hello@form.example">hello@form.example ↗</a></div><div><h3>Follow along</h3><p>New objects, updates, and everyday inspiration.</p><a href="https://instagram.com/" target="_blank">Instagram ↗</a></div></div></section>
+</main>
+<footer><div class="footer-top"><a class="logo" href="#">FORM<sup>®</sup></a><div class="footer-links"><div><b>Explore</b><a href="#shop">Shop</a><a href="#about">About us</a></div><div><b>Help</b><a href="#contact">Contact</a><a href="#contact">Shipping info</a><a href="#contact">FAQ</a></div><div><b>Social</b><a href="https://instagram.com/" target="_blank">Instagram ↗</a><a href="https://tiktok.com/" target="_blank">TikTok ↗</a></div></div></div><div class="footer-bottom"><span>© 2026 FORM® — CONCEPT STORE</span><span>DESIGNED WITH INTENTION.</span></div></footer>
+</div>
+<script>
+document.querySelectorAll('.upload input').forEach(input=>input.addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;const box=e.target.closest('.photo');const img=box.querySelector('img');img.src=URL.createObjectURL(file);img.style.display='block';box.querySelector('.placeholder').style.display='none';}));
+</script>
+</body></html>
